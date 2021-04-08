@@ -1,0 +1,5 @@
+# Ignore environment files
+.env
+
+#Ignore BirthdayBot.db
+BirthdayBot.db
