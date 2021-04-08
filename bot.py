@@ -144,7 +144,8 @@ async def month(ctx, input=None):
         title=f"Birthdays in {curr_month_name}",
         description=f"\nHere are the birthdays in {curr_month_name}!\n",
         color=discord.Color.red())
-        embed.set_thumbnail(url="https://lh6.googleusercontent.com/proxy/VC3HwSpprX5v5WNYIEMji6ZrtJoqhaKPeN51Rq9oS3co38Jsi_GZYDVkitNPHXrqzgrsnLFIdGgPzu8zqYN1ckWGMJ0wgkTJ-PL3Fko-BdaXU1dTussQEQ=s0-d")
+        file = discord.File("img/birthdaybot.png", filename="birthdaybot.png")
+        embed.set_thumbnail(url="attachment://birthdaybot.png")
         val = ""
         for row in rows:
             # Make birthday list
@@ -156,7 +157,7 @@ async def month(ctx, input=None):
 
         # Add footer
         embed.set_footer(text="If you want your birthday to be added, use the '!addbirthday' command!")
-        await ctx.send(embed=embed)
+        await ctx.send(file=file, embed=embed)
     else:
         await ctx.send("There are no birthdays for this month!")
 
@@ -213,7 +214,8 @@ async def birthday_message():
             title=":birthday:❗__Birthday Announcement__❗:birthday:",
             description=f"\nSomeone's Birthday is Today!\n",
             color=discord.Color.red())
-            embed.set_thumbnail(url="https://lh6.googleusercontent.com/proxy/VC3HwSpprX5v5WNYIEMji6ZrtJoqhaKPeN51Rq9oS3co38Jsi_GZYDVkitNPHXrqzgrsnLFIdGgPzu8zqYN1ckWGMJ0wgkTJ-PL3Fko-BdaXU1dTussQEQ=s0-d")
+            file = discord.File("img/birthdaybot.png", filename="birthdaybot.png")
+            embed.set_thumbnail(url="attachment://birthdaybot.png")
 
             # Make birthday list
             val = ""
@@ -231,7 +233,7 @@ async def birthday_message():
 
             # Add footer
             embed.set_footer(text="If you want everyone to be notified of your birthday, use '!addbirthday' to be added!")
-            await message_channel.send(f"@everyone \n<@!826677529451954177> here with a Special **Birthday Announcement**!", embed=embed)
+            await message_channel.send(f"@everyone \n<@!826677529451954177> here with a Special **Birthday Announcement**!", file=file, embed=embed)
 
 @birthday_message.before_loop
 async def before():
