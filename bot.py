@@ -63,7 +63,7 @@ async def addbirthday(ctx, input=None):
     cursor.execute(f"SELECT * FROM Servers WHERE serverID={ctx.guild.id} AND channelID NOT NULL")
     row = cursor.fetchone()
     if (not row):
-        await ctx.send("Please use the `!setchannel` command before using this.")
+        await ctx.send("Please use the `b!setchannel` command before using this.")
     else:
         if input and re.search(r"^\d{4}-\d{2}-\d{2}$", input):
             date = input.split('-')
@@ -81,7 +81,7 @@ async def addbirthday(ctx, input=None):
                 cursor.execute(f"SELECT * FROM Birthdays WHERE userID={userID} AND guildID={ctx.guild.id}")
                 row = cursor.fetchone()
                 if row:
-                    await ctx.send('You have already added a birthday. Use !update to change it!')
+                    await ctx.send('You have already added a birthday. Use b!update to change it!')
                 else:
                     cursor.execute(f"INSERT INTO Birthdays VALUES ({userID}, {ctx.guild.id}, '{userName}', '{bday}')")
                     connection.commit()
@@ -156,7 +156,7 @@ async def month(ctx, input=None):
             embed.add_field(name=f"**There are {len(rows)} birthdays in {curr_month_name}:**", value=f"{val}")
 
         # Add footer
-        embed.set_footer(text="If you want your birthday to be added, use the '!addbirthday' command!")
+        embed.set_footer(text="If you want your birthday to be added, use the 'b!addbirthday' command!")
         await ctx.send(file=file, embed=embed)
     else:
         await ctx.send("There are no birthdays for this month!")
@@ -187,7 +187,7 @@ async def on_command_error(ctx, error):
   if isinstance(error, commands.errors.CheckFailure):
     await ctx.send('You do not have the correct role for this command.')
   elif isinstance(error, commands.CommandNotFound):
-    await ctx.send('This command does not exist. Please use !help to see valid commands.')
+    await ctx.send('This command does not exist. Please use b!help to see valid commands.')
 
 @tasks.loop(hours=24)
 async def birthday_message():
@@ -232,7 +232,7 @@ async def birthday_message():
                 embed.add_field(name=f"**There are {len(rows)} birthdays today:**", value=f"{val}")
 
             # Add footer
-            embed.set_footer(text="If you want everyone to be notified of your birthday, use '!addbirthday' to be added!")
+            embed.set_footer(text="If you want everyone to be notified of your birthday, use 'b!addbirthday' to be added!")
             await message_channel.send(f"@everyone \n<@!826677529451954177> here with a Special **Birthday Announcement**!", file=file, embed=embed)
 
 @birthday_message.before_loop
