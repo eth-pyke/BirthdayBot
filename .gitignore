@@ -3,3 +3,6 @@
 
 #Ignore BirthdayBot.db
 BirthdayBot.db
+
+#Ignore venv
+birthdaybot/
