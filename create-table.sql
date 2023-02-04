@@ -8,5 +8,6 @@ CREATE TABLE Birthdays(
 CREATE TABLE Servers(
     serverID INT PRIMARY KEY,
     serverName VARCHAR,
-    channelID INT
+    channelID INT,
+    announceTime timestamp
 );
