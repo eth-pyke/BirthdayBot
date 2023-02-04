@@ -234,7 +234,7 @@ async def add(interaction: discord.Interaction, birthdate: str, user: Optional[d
     if user == None or user == interaction.user: user = interaction.user
     elif not interaction.permissions.manage_guild:
         await interaction.response.send_message('You do not have permission ' + 
-        'to change another user\'s birthdate. You must have manage server.', ephemeral=True)
+        'to change another user\'s birthdate. You must have the Manage Server permission.', ephemeral=True)
 
         return
 
@@ -255,7 +255,7 @@ async def update(interaction: discord.Interaction, birthdate: str, user: Optiona
     if user == None or user == interaction.user: user = interaction.user
     elif not interaction.permissions.manage_guild:
         await interaction.response.send_message('You do not have permission ' + 
-        'to change another user\'s birthdate. You must have manage server.', ephemeral=True)
+        'to change another user\'s birthdate. You must have the Manage Server permission.', ephemeral=True)
 
         return
 

@@ -22,7 +22,7 @@ sqlite3 BirthdayBot.db
 - Embeded Links
 - Attach Files
 
-You can also just use this URL: `https://discord.com/api/oauth2/authorize?client_id=[CLIENT_ID]&permissions=51200&scope=bot%20applications.commands` but replace `[CLIENT_ID]` with /your/ bot's client ID.
+You can also just use this URL: `https://discord.com/api/oauth2/authorize?client_id=[CLIENT_ID]&permissions=51200&scope=bot%20applications.commands` but replace `[CLIENT_ID]` with _your_ bot's client ID.
 
 6. Create a .env file with a variable `DISCORD_TOKEN` set to a Discord Bot token (i.e. `DISCORD_TOKEN=[TOKEN]` and `DATABASE=BirthdayBot.db`)
 
