@@ -4,6 +4,9 @@ FROM python:3.8-slim
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
 
+ENV DATABASE=/data/BirthdayBot.db
+ENV DISCORD_TOKEN=
+
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
@@ -15,18 +18,14 @@ WORKDIR /app
 COPY . /app
 
 RUN mkdir /data
-
-COPY ./BirthdayBot.db /data
 VOLUME /data
+
+COPY ./BirthdayBot.db /data/
 
 # Creates a non-root user with an explicit UID and adds permission to access the /app folder
 # For more info, please refer to https://aka.ms/vscode-docker-python-configure-containers
-RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app /data
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
 CMD ["python", "bot.py"]
-
-ENV DATABASE=/data/BirthdayBot.db
-
-ENV DISCORD_TOKEN=

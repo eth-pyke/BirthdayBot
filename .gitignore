@@ -6,3 +6,7 @@ BirthdayBot.db
 
 #Ignore venv
 birthdaybot/
+.vscode/launch.json
+.vscode/tasks.json
+.gitignore
+.dockerignore
