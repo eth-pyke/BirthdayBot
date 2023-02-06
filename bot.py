@@ -62,7 +62,7 @@ announceTime = getAnnounceTime()
 def announceOnlyTime(): return [x[0] for x in announceTime]
 
 if not announceTime:
-    announceTime = [(0, datetime.now().time())]
+    announceTime = [(datetime.now().time(), 0)]
 
 class BirthdayBot(discord.Client):
     def __init__(self, *, intents: discord.Intents):
