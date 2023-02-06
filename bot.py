@@ -80,13 +80,12 @@ class BirthdayBot(discord.Client):
         logging.info(f"Checking for birthdays for servers set to {checkTime}")
         
         cursor = connection.cursor()
-        #cursor.execute(f"SELECT channelID FROM Servers WHERE channelID NOT NULL AND announceTime={checkTime}")
-        #channels = cursor.fetchall()
 
         channels = [x for x in announceTime if x[0] == checkTime]
 
         for channel in channels:
             message_channel = self.get_channel(channel[2])
+            if not message_channel: raise TypeError("message_channel is None")
 
             currdate = datetime.now().date()
             mm = currdate.month
@@ -354,6 +353,9 @@ async def setchannel(interaction: discord.Interaction, input: str = None):
         await interaction.response.send_message("Channel has been updated.")
     else:
         await interaction.response.send_message("Please enter a valid channel.")
+
+    global announceTime
+    announceTime = getAnnounceTime()
 
 # /settime
 # TODO localize input instead of using UTC
