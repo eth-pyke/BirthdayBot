@@ -2,7 +2,7 @@
 # Birthday Bot
 # bot.py
 #
-# Oringial Author: Ethan Pyke
+# Original Author: Ethan Pyke
 #
 # This is a Discord bot meant to run on a container that keeps track of users
 # birthdays and announces when it is their birthday.
@@ -45,7 +45,7 @@ BirthdayBot V2.0\n\
 \
 ")
 
-logging.basicConfig(level=logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
 
 # Connect db
 # TODO add database check
