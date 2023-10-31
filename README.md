@@ -1,5 +1,5 @@
 # BirthdayBot
-## Decription
+## Description
 This bot works with the Discord Python library birthday announcements to all the discord servers it is
 connected to.  It allows users to add/update their birthdays and to see what birthdays are coming up.
 
@@ -8,7 +8,7 @@ connected to.  It allows users to add/update their birthdays and to see what bir
 
 ## Setup
 1. Clone or download repo.
-2. Set up Python virtual enviornment with `python -m venv birthdaybot`
+2. Set up Python virtual environment with `python -m venv birthdaybot`
 3. Install dependencies with `pip install -r requirements.txt`
 4. Download [sqlite3 tools](https://www.sqlite.org/download.html) and run in a terminal:
 
@@ -19,7 +19,7 @@ sqlite3 BirthdayBot.db
 ```
 5. Create an app on the Discord developer profile, generate a token, and invite the bot to your server using an OAuth2 URL. You need the bot and app command scope and the following permissions:
 - Send Messages
-- Embeded Links
+- Embedded Links
 - Attach Files
 
 You can also just use this URL: `https://discord.com/api/oauth2/authorize?client_id=[CLIENT_ID]&permissions=51200&scope=bot%20applications.commands` but replace `[CLIENT_ID]` with _your_ bot's client ID.
